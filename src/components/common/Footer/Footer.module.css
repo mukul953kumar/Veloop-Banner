@@ -1,0 +1,64 @@
+.footerWrapper {
+  width: 100%;
+  padding: 1.5rem 0 2rem 0;
+  margin-top: 1rem;
+}
+
+.footerContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.2rem 1.8rem;
+  border-radius: 16px;
+  background: rgba(22, 24, 39, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.noticeCol {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.infoIcon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.noticeText {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.noticeText strong {
+  color: #cbd5e1;
+}
+
+.brandCol {
+  flex-shrink: 0;
+}
+
+.brandText {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+  }
+}

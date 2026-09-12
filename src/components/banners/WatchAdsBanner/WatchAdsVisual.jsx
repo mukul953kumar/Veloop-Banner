@@ -1,0 +1,17 @@
+import React from 'react'
+import componentImg from '../../../assets/illustrations/watch-ads/watchadcomponent.png'
+import styles from './WatchAdsBanner.module.css'
+
+export default function WatchAdsVisual() {
+  return (
+    <div className={styles.visualContainer}>
+      <div className={styles.visualStage}>
+        <img
+          src={componentImg}
+          alt="Watch Ads and Earn VEs Illustration"
+          className={styles.visualImage}
+        />
+      </div>
+    </div>
+  )
+}

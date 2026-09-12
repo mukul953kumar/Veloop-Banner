@@ -1,0 +1,437 @@
+.bannerWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bannerCard {
+  width: 100%;
+  height: 440px;
+  background: 
+    radial-gradient(circle at 92% 12%, rgba(124, 58, 237, 0.35) 0%, transparent 40%),
+    radial-gradient(circle at 6% 92%, rgba(192, 38, 211, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 65%),
+    #050626;
+  border-radius: 24px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  box-shadow: 
+    0 25px 50px -15px rgba(0, 0, 0, 0.9),
+    0 0 40px -5px rgba(124, 58, 237, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bannerCard:hover {
+  border-color: rgba(192, 132, 252, 0.55);
+  box-shadow: 
+    0 28px 60px -15px rgba(0, 0, 0, 0.95),
+    0 0 55px 0px rgba(124, 58, 237, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.cornerBadge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  padding: 0.55rem 1.4rem 0.75rem 1.1rem;
+  border-bottom-right-radius: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 4px 15px rgba(109, 40, 217, 0.4);
+  z-index: 10;
+}
+
+.contentCol {
+  flex: 0 0 33%;
+  max-width: 400px;
+  padding: 2.6rem 1.6rem 2.4rem 2.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  order: 1;
+}
+
+.badgeCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.badgeCategory span {
+  color: #c084fc;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.categoryLine {
+  width: 32px;
+  height: 2.5px;
+  background: #e879f9;
+  border-radius: 2px;
+}
+
+.headerGroup {
+  margin: 0.5rem 0;
+}
+
+.titleText {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.9rem;
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.titleMain {
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+}
+
+.titleAccent {
+  background: linear-gradient(90deg, #f472b6 0%, #c084fc 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 26px rgba(192, 132, 252, 0.7));
+}
+
+.descriptionText {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.brandHighlight {
+  color: #c084fc;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+}
+
+.actionRow {
+  margin-top: 0.5rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  border: none;
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 50%, #c026d3 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  box-shadow: 
+    0 4px 22px rgba(124, 58, 237, 0.5), 
+    0 0 35px rgba(192, 38, 211, 0.35), 
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 30px rgba(124, 58, 237, 0.7), 
+    0 0 45px rgba(192, 38, 211, 0.5), 
+    inset 0 1px 2px rgba(255, 255, 255, 0.75);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+.ctaArrow {
+  transition: transform 0.2s ease;
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+.visualCol {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  order: 2;
+}
+
+.visualContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.35) 0%, transparent 68%);
+}
+
+.visualStage {
+  position: relative;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 507 / 457;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-image: radial-gradient(ellipse 85% 82% at 50% 50%, black 45%, rgba(0, 0, 0, 0.55) 68%, transparent 92%);
+  mask-image: radial-gradient(ellipse 85% 82% at 50% 50%, black 45%, rgba(0, 0, 0, 0.55) 68%, transparent 92%);
+}
+
+.visualImage {
+  width: 100%;
+  height: 96%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 0 35px rgba(124, 58, 237, 0.5));
+}
+
+.actionCardCol {
+  flex: 0 0 32%;
+  max-width: 380px;
+  padding-right: 2.2rem;
+  position: relative;
+  z-index: 5;
+  order: 3;
+}
+
+.rewardBox {
+  background: rgba(18, 12, 45, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(168, 85, 247, 0.35);
+  border-radius: 20px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.5), 
+    0 0 30px rgba(124, 58, 237, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.rewardTopRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.giftIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c3aed 0%, #c026d3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.45);
+}
+
+.giftIcon {
+  color: #ffffff;
+}
+
+.rewardMessage {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.rewardsWord {
+  color: #c084fc;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+}
+
+.rewardDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.rewardBottomRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.boltIconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boltIcon {
+  color: #c084fc;
+  filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.8));
+}
+
+.rewardAmountGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.rewardAmount {
+  font-family: 'Outfit', sans-serif;
+  color: #ffffff;
+  font-size: 1.85rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 18px rgba(192, 132, 252, 0.6);
+}
+
+.campaignSubtitle {
+  color: #c4b5fd;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .bannerCard {
+    height: auto;
+    min-height: 520px;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .visualCol {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 280px;
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .visualContainer {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 40%, rgba(124, 58, 237, 0.5) 0%, transparent 70%);
+  }
+
+  .visualStage {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: auto;
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, rgba(0, 0, 0, 0.35) 85%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 65%, rgba(0, 0, 0, 0.35) 85%, transparent 100%);
+  }
+
+  .visualImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .contentCol {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    order: 2;
+    padding: 1.2rem 1.6rem;
+    gap: 1.2rem;
+  }
+
+  .actionCardCol {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1.6rem 2rem 1.6rem;
+    order: 3;
+  }
+
+  .rewardBox {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .titleText {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .bannerCard {
+    border-radius: 18px;
+  }
+
+  .visualCol {
+    height: 240px;
+  }
+
+  .visualImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .contentCol {
+    padding: 1rem 1.2rem;
+    gap: 1rem;
+  }
+
+  .titleText {
+    font-size: 2rem;
+  }
+
+  .descriptionText {
+    font-size: 0.88rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+  }
+
+  .actionCardCol {
+    padding: 0 1.2rem 1.6rem 1.2rem;
+  }
+
+  .rewardBox {
+    max-width: 100%;
+    padding: 1.1rem;
+  }
+}
