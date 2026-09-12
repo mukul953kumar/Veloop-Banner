@@ -2,7 +2,7 @@
 
 A premium, interactive, and responsive frontend implementation of the five core engagement banners for the **VELOOP Rewards** platform. Built with modern web standards, gamified reward systems, and a high-end fintech aesthetic.
 
----
+Live link - `[https://veloop-banner-one.vercel.app/]`
 
 ## 🌟 Project Overview
 
@@ -177,7 +177,7 @@ Every banner strictly complies with the global specification guidelines:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/veloop-rewards.git
+git clone https://github.com/mukul952kumar/veloop-rewards.git
 cd veloop-rewards
 ```
 
@@ -206,9 +206,9 @@ npm run preview
 
 ## 🚀 Deployment
 
-The project is fully optimized for static deployment on **Vercel** or **Netlify**:
-
-1. **Platform:** Vercel / Netlify
+The project is fully optimized for static deployment on **Vercel**:
+**Vercel Live link**: [https://veloop-banner-one.vercel.app/](https://veloop-banner-one.vercel.app/)
+1. **Platform:** Vercel 
 2. **Build Command:** `npm run build`
 3. **Output Directory:** `dist`
 4. **Node Version:** `18.x` or `20.x`
