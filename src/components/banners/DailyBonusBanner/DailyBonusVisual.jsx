@@ -1,6 +1,6 @@
 import React from 'react'
 import { Gem } from 'lucide-react'
-import componentImg from '../../../assets/illustrations/daily-bonus/dailybonuscomponent.png'
+import componentImg from '../../../assets/illustrations/daily-bonus/dailybonuscomponent.webp'
 import { dailyBonusData } from '../../../data/dailyBonusData'
 import styles from './DailyBonusBanner.module.css'
 
@@ -12,6 +12,8 @@ export default function DailyBonusVisual({ isClaimed }) {
           src={componentImg}
           alt="3D Glowing Mystery Gift Box with Gold Coins"
           className={styles.visualImage}
+          loading="lazy"
+          decoding="async"
         />
 
         <div className={styles.todayBonusCard}>

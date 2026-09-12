@@ -1,5 +1,5 @@
 import React from 'react'
-import componentImg from '../../../assets/illustrations/follow-earn/followearncomponent.png'
+import componentImg from '../../../assets/illustrations/follow-earn/followearncomponent.webp'
 import styles from './FollowEarnBanner.module.css'
 
 export default function FollowEarnVisual() {
@@ -10,6 +10,8 @@ export default function FollowEarnVisual() {
           src={componentImg}
           alt="Official VELOOP Rewards Social Profile and Floating Reactions"
           className={styles.visualImage}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>

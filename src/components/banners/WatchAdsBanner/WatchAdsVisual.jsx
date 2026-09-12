@@ -1,5 +1,5 @@
 import React from 'react'
-import componentImg from '../../../assets/illustrations/watch-ads/watchadcomponent.png'
+import componentImg from '../../../assets/illustrations/watch-ads/watchadcomponent.webp'
 import styles from './WatchAdsBanner.module.css'
 
 export default function WatchAdsVisual() {
@@ -10,6 +10,8 @@ export default function WatchAdsVisual() {
           src={componentImg}
           alt="Watch Ads and Earn VEs Illustration"
           className={styles.visualImage}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>

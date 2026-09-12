@@ -1,5 +1,5 @@
 import React from 'react'
-import componentImg from '../../../assets/illustrations/leaderboard/leaderboardcomponent.png'
+import componentImg from '../../../assets/illustrations/leaderboard/leaderboardcomponent.webp'
 import styles from './LeaderboardBanner.module.css'
 
 export default function LeaderboardVisual({ users = [] }) {
@@ -14,6 +14,8 @@ export default function LeaderboardVisual({ users = [] }) {
           src={componentImg}
           alt="Leaderboard Podium"
           className={styles.visualImage}
+          fetchPriority="high"
+          decoding="async"
         />
 
         <div className={styles.slotCenterCircle}>

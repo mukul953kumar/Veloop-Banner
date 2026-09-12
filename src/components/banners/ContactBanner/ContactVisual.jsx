@@ -1,5 +1,5 @@
 import React from 'react'
-import componentImg from '../../../assets/illustrations/contact/contactcomponent.png'
+import componentImg from '../../../assets/illustrations/contact/contactcomponent.webp'
 import styles from './ContactBanner.module.css'
 
 export default function ContactVisual() {
@@ -10,6 +10,8 @@ export default function ContactVisual() {
           src={componentImg}
           alt="Friendly VELOOP Customer Support Representative"
           className={styles.visualImage}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>
