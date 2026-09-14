@@ -2,7 +2,8 @@
 
 A premium, interactive, and responsive frontend implementation of the five core engagement banners for the **VELOOP Rewards** platform. Built with modern web standards, gamified reward systems, and a high-end fintech aesthetic.
 
-Live link - `[https://veloop-banner-one.vercel.app/]`
+> **Live Demo:** [https://veloop-banner-one.vercel.app/](https://veloop-banner-one.vercel.app/)  
+> **GitHub Repository:** [https://github.com/mukul953kumar/Veloop-Banner](https://github.com/mukul953kumar/Veloop-Banner)
 
 ## 🌟 Project Overview
 
@@ -174,8 +175,8 @@ Every banner strictly complies with the global specification guidelines:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/mukul952kumar/veloop-rewards.git
-cd veloop-rewards
+git clone https://github.com/mukul953kumar/Veloop-Banner.git
+cd Veloop-Banner
 ```
 
 ### 2. Install dependencies
@@ -217,4 +218,5 @@ The project is fully optimized for static deployment on **Vercel**:
 
 - **Assignment:** VELOOP Rewards – Task 06 (Rewards, Engagement Utility Banner/Card Redesign)
 - **Framework:** React 19 + Vite
-- **Repository:** `veloop-rewards`
+- **Repository:** [https://github.com/mukul953kumar/Veloop-Banner](https://github.com/mukul953kumar/Veloop-Banner)
+- **Live Deployment:** [https://veloop-banner-one.vercel.app/](https://veloop-banner-one.vercel.app/)
