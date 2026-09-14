@@ -141,9 +141,6 @@ veloop-rewards/
 ├── index.html
 ├── package.json
 ├── vite.config.js
-├── task.md
-├── architecture.md
-├── design.md
 └── README.md
 ```
 

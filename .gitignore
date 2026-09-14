@@ -11,3 +11,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Specifications & planning
+task.md
+architecture.md
+design.md
