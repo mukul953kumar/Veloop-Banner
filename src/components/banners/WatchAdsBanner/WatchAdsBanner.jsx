@@ -1,10 +1,16 @@
-import React from 'react'
 import { Play, Shield, Zap, ArrowRight } from 'lucide-react'
 import WatchAdsVisual from './WatchAdsVisual'
 import { adsData } from '../../../data/adsData'
 import styles from './WatchAdsBanner.module.css'
 
+const FEATURE_ICONS = {
+  shield: Shield,
+  zap: Zap
+}
+
 export default function WatchAdsBanner() {
+  const { badgeNumber, badgeText, titleLight, titleAccent, description, features, ctaText } = adsData
+
   return (
     <section className={styles.bannerWrapper}>
       <div className={styles.bannerCard}>
@@ -15,32 +21,31 @@ export default function WatchAdsBanner() {
         <div className={styles.contentCol}>
           <div className={styles.badgeRow}>
             <div className={styles.cornerBadge}>
-              <span>{adsData.badgeNumber}</span>
+              <span>{badgeNumber}</span>
             </div>
             <div className={styles.stageBadge}>
               <Play size={13} className={styles.playBadgeIcon} fill="#38bdf8" />
-              <span>{adsData.badgeText}</span>
+              <span>{badgeText}</span>
             </div>
           </div>
 
           <div className={styles.headerGroup}>
-            <h2 className={styles.titleLineOne}>{adsData.titleLight}</h2>
-            <h2 className={styles.titleLineTwo}>{adsData.titleAccent}</h2>
+            <h2 className={styles.titleLineOne}>{titleLight}</h2>
+            <h2 className={styles.titleLineTwo}>{titleAccent}</h2>
           </div>
 
-          <p className={styles.descriptionText}>
-            {adsData.description}
-          </p>
+          <p className={styles.descriptionText}>{description}</p>
 
           <div className={styles.featuresRow}>
-            <div className={styles.featurePill}>
-              <Shield size={16} className={styles.featureIcon} />
-              <span>{adsData.features[0].text}</span>
-            </div>
-            <div className={styles.featurePill}>
-              <Zap size={16} className={styles.featureIcon} />
-              <span>{adsData.features[1].text}</span>
-            </div>
+            {features.map((feature) => {
+              const Icon = FEATURE_ICONS[feature.icon] || Shield
+              return (
+                <div key={feature.id} className={styles.featurePill}>
+                  <Icon size={16} className={styles.featureIcon} />
+                  <span>{feature.text}</span>
+                </div>
+              )
+            })}
           </div>
 
           <div className={styles.actionRow}>
@@ -48,7 +53,7 @@ export default function WatchAdsBanner() {
               <span className={styles.playCircle}>
                 <Play size={14} className={styles.btnPlayIcon} fill="#2563eb" />
               </span>
-              <span>{adsData.ctaText}</span>
+              <span>{ctaText}</span>
               <ArrowRight size={18} className={styles.ctaArrow} />
             </button>
           </div>
@@ -57,3 +62,4 @@ export default function WatchAdsBanner() {
     </section>
   )
 }
+

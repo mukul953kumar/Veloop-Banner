@@ -1,4 +1,3 @@
-import React from 'react'
 import componentImg from '../../../assets/illustrations/watch-ads/watchadcomponent.webp'
 import styles from './WatchAdsBanner.module.css'
 
@@ -11,10 +10,10 @@ export default function WatchAdsVisual() {
           alt="Watch Ads and Earn VEs Illustration"
           className={styles.visualImage}
           loading="eager"
-          fetchPriority="high"
           decoding="sync"
         />
       </div>
     </div>
   )
 }
+

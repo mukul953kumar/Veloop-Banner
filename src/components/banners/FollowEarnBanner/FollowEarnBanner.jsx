@@ -1,15 +1,16 @@
-import React from 'react'
 import { ArrowRight, Gift, Zap } from 'lucide-react'
 import FollowEarnVisual from './FollowEarnVisual'
 import { socialChannelsData } from '../../../data/socialChannelsData'
 import styles from './FollowEarnBanner.module.css'
 
 export default function FollowEarnBanner() {
+  const { badgeNumber, badgeCategory, titleMain, titleAccent, ctaText, rewardCard } = socialChannelsData
+
   return (
     <section className={styles.bannerWrapper}>
       <div className={styles.bannerCard}>
         <div className={styles.cornerBadge}>
-          <span>{socialChannelsData.badgeNumber}</span>
+          <span>{badgeNumber}</span>
         </div>
 
         <div className={styles.visualCol}>
@@ -18,14 +19,14 @@ export default function FollowEarnBanner() {
 
         <div className={styles.contentCol}>
           <div className={styles.badgeCategory}>
-            <span>{socialChannelsData.badgeCategory}</span>
-            <div className={styles.categoryLine}></div>
+            <span>{badgeCategory}</span>
+            <div className={styles.categoryLine} />
           </div>
 
           <div className={styles.headerGroup}>
             <h2 className={styles.titleText}>
-              <span className={styles.titleMain}>{socialChannelsData.titleMain} </span>
-              <span className={styles.titleAccent}>{socialChannelsData.titleAccent}</span>
+              <span className={styles.titleMain}>{titleMain} </span>
+              <span className={styles.titleAccent}>{titleAccent}</span>
             </h2>
           </div>
 
@@ -35,7 +36,7 @@ export default function FollowEarnBanner() {
 
           <div className={styles.actionRow}>
             <button className={styles.ctaButton} type="button">
-              <span>{socialChannelsData.ctaText}</span>
+              <span>{ctaText}</span>
               <ArrowRight size={18} className={styles.ctaArrow} />
             </button>
           </div>
@@ -52,15 +53,15 @@ export default function FollowEarnBanner() {
               </p>
             </div>
 
-            <div className={styles.rewardDivider}></div>
+            <div className={styles.rewardDivider} />
 
             <div className={styles.rewardBottomRow}>
               <div className={styles.boltIconBox}>
                 <Zap size={28} className={styles.boltIcon} />
               </div>
               <div className={styles.rewardAmountGroup}>
-                <span className={styles.rewardAmount}>{socialChannelsData.rewardCard.amount}</span>
-                <span className={styles.campaignSubtitle}>{socialChannelsData.rewardCard.campaignType}</span>
+                <span className={styles.rewardAmount}>{rewardCard.amount}</span>
+                <span className={styles.campaignSubtitle}>{rewardCard.campaignType}</span>
               </div>
             </div>
           </div>
@@ -69,3 +70,4 @@ export default function FollowEarnBanner() {
     </section>
   )
 }
+

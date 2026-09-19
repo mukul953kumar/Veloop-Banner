@@ -1,10 +1,11 @@
-import React from 'react'
 import { Gem } from 'lucide-react'
 import componentImg from '../../../assets/illustrations/daily-bonus/dailybonuscomponent.webp'
 import { dailyBonusData } from '../../../data/dailyBonusData'
 import styles from './DailyBonusBanner.module.css'
 
 export default function DailyBonusVisual({ isClaimed }) {
+  const { todayBonus } = dailyBonusData
+
   return (
     <div className={styles.visualContainer}>
       <div className={styles.visualStage}>
@@ -13,14 +14,13 @@ export default function DailyBonusVisual({ isClaimed }) {
           alt="3D Glowing Mystery Gift Box with Gold Coins"
           className={styles.visualImage}
           loading="eager"
-          fetchPriority="high"
           decoding="sync"
         />
 
         <div className={styles.todayBonusCard}>
           <div className={styles.todayHeader}>
             <Gem size={15} className={styles.gemIcon} />
-            <span>{dailyBonusData.todayBonus.label}</span>
+            <span>{todayBonus.label}</span>
           </div>
 
           <div className={styles.todayAmountRow}>
@@ -30,12 +30,13 @@ export default function DailyBonusVisual({ isClaimed }) {
 
           <div className={styles.todayStatusRow}>
             <span className={styles.todayStatusText}>
-              {isClaimed ? 'Claimed Today' : dailyBonusData.todayBonus.statusText}
+              {isClaimed ? 'Claimed Today' : todayBonus.statusText}
             </span>
-            <span className={isClaimed ? styles.statusDotClaimed : styles.statusDot}></span>
+            <span className={isClaimed ? styles.statusDotClaimed : styles.statusDot} />
           </div>
         </div>
       </div>
     </div>
   )
 }
+

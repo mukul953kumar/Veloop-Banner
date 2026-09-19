@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Crown, Gift, ArrowRight, Flame, Check, Sparkles, CheckCircle2 } from 'lucide-react'
 import DailyBonusVisual from './DailyBonusVisual'
 import { dailyBonusData } from '../../../data/dailyBonusData'
@@ -7,21 +7,19 @@ import styles from './DailyBonusBanner.module.css'
 export default function DailyBonusBanner() {
   const [isClaimed, setIsClaimed] = useState(false)
 
-  const handleClaim = () => {
-    setIsClaimed(true)
-  }
+  const { badgeNumber, badgeCategory, titleMain, titleAccent, descriptionText, ctaText, streakCard } = dailyBonusData
 
   const streakDays = isClaimed
-    ? dailyBonusData.streakCard.days.map((d) => ({ ...d, completed: true }))
-    : dailyBonusData.streakCard.days
+    ? streakCard.days.map((day) => ({ ...day, completed: true }))
+    : streakCard.days
 
-  const completedCount = isClaimed ? 7 : dailyBonusData.streakCard.completedDays
+  const completedCount = isClaimed ? 7 : streakCard.completedDays
 
   return (
     <section className={styles.bannerWrapper}>
       <div className={styles.bannerCard}>
         <div className={styles.cornerBadge}>
-          <span>{dailyBonusData.badgeNumber}</span>
+          <span>{badgeNumber}</span>
         </div>
 
         <div className={styles.visualCol}>
@@ -32,24 +30,22 @@ export default function DailyBonusBanner() {
           <div className={styles.badgeCategory}>
             <div className={styles.categoryPill}>
               <Crown size={15} className={styles.crownIcon} />
-              <span>{dailyBonusData.badgeCategory}</span>
+              <span>{badgeCategory}</span>
             </div>
           </div>
 
           <div className={styles.headerGroup}>
-            <h2 className={styles.titleLineOne}>{dailyBonusData.titleMain}</h2>
-            <h2 className={styles.titleLineTwo}>{dailyBonusData.titleAccent}</h2>
+            <h2 className={styles.titleLineOne}>{titleMain}</h2>
+            <h2 className={styles.titleLineTwo}>{titleAccent}</h2>
           </div>
 
-          <p className={styles.descriptionText}>
-            {dailyBonusData.descriptionText}
-          </p>
+          <p className={styles.descriptionText}>{descriptionText}</p>
 
           <div className={styles.actionRow}>
             <button
               className={`${styles.ctaButton} ${isClaimed ? styles.ctaButtonClaimed : ''}`}
               type="button"
-              onClick={handleClaim}
+              onClick={() => setIsClaimed(true)}
             >
               {isClaimed ? (
                 <>
@@ -62,7 +58,7 @@ export default function DailyBonusBanner() {
               ) : (
                 <>
                   <Gift size={20} className={styles.btnGiftIcon} />
-                  <span>{dailyBonusData.ctaText}</span>
+                  <span>{ctaText}</span>
                   <span className={styles.btnArrowCircle}>
                     <ArrowRight size={16} className={styles.ctaArrow} />
                   </span>
@@ -78,10 +74,10 @@ export default function DailyBonusBanner() {
               <div className={styles.flameIconBox}>
                 <Flame size={18} className={styles.flameIcon} />
               </div>
-              <span className={styles.streakTitle}>{dailyBonusData.streakCard.title}</span>
+              <span className={styles.streakTitle}>{streakCard.title}</span>
             </div>
 
-            <div className={styles.streakDivider}></div>
+            <div className={styles.streakDivider} />
 
             <div className={styles.streakDaysRow}>
               {streakDays.map((item) => (
@@ -105,7 +101,7 @@ export default function DailyBonusBanner() {
                 <span className={styles.completedNumber}>{completedCount}</span> {isClaimed ? 'Days Completed!' : 'Days Completed'}
               </div>
               <span className={styles.statusSubtitle}>
-                {isClaimed ? 'All daily rewards unlocked!' : dailyBonusData.streakCard.statusSubtitle}
+                {isClaimed ? 'All daily rewards unlocked!' : streakCard.statusSubtitle}
               </span>
             </div>
           </div>
@@ -114,3 +110,4 @@ export default function DailyBonusBanner() {
     </section>
   )
 }
+

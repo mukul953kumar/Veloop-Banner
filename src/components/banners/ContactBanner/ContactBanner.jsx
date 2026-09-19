@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { 
   MessageCircle, 
   ArrowRight, 
@@ -14,14 +14,33 @@ import ContactVisual from './ContactVisual'
 import { contactData } from '../../../data/contactData'
 import styles from './ContactBanner.module.css'
 
+const LINK_ICONS = {
+  book: { Icon: BookOpen, className: styles.quickLinkIconCyan },
+  ticket: { Icon: Ticket, className: styles.quickLinkIconPurple }
+}
+
 export default function ContactBanner() {
   const [copied, setCopied] = useState(false)
+  const timerRef = useRef(null)
 
-  const handleCopyEmail = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(contactData.supportCard.emailValue)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+  const { badgeNumber, badgeCategory, titleMain, titleAccent, descriptionLine1, ctaText, supportCard } = contactData
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
+
+  const handleCopyEmail = async () => {
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(supportCard.emailValue)
+        setCopied(true)
+        if (timerRef.current) clearTimeout(timerRef.current)
+        timerRef.current = setTimeout(() => setCopied(false), 2000)
+      }
+    } catch {
+      // Clipboard write failed silently
     }
   }
 
@@ -29,7 +48,7 @@ export default function ContactBanner() {
     <section className={styles.bannerWrapper}>
       <div className={styles.bannerCard}>
         <div className={styles.cornerBadge}>
-          <span>{contactData.badgeNumber}</span>
+          <span>{badgeNumber}</span>
         </div>
 
         <div className={styles.visualCol}>
@@ -38,19 +57,19 @@ export default function ContactBanner() {
 
         <div className={styles.contentCol}>
           <div className={styles.badgeCategory}>
-            <span>{contactData.badgeCategory}</span>
-            <div className={styles.categoryLine}></div>
+            <span>{badgeCategory}</span>
+            <div className={styles.categoryLine} />
           </div>
 
           <div className={styles.headerGroup}>
             <h2 className={styles.titleText}>
-              <span className={styles.titleMain}>{contactData.titleMain} </span>
-              <span className={styles.titleAccent}>{contactData.titleAccent}</span>
+              <span className={styles.titleMain}>{titleMain} </span>
+              <span className={styles.titleAccent}>{titleAccent}</span>
             </h2>
           </div>
 
           <div className={styles.descriptionGroup}>
-            <p className={styles.descriptionText}>{contactData.descriptionLine1}</p>
+            <p className={styles.descriptionText}>{descriptionLine1}</p>
             <p className={styles.descriptionText}>
               Get in touch with the <span className={styles.brandHighlight}>VELOOP Rewards</span> team.
             </p>
@@ -58,7 +77,7 @@ export default function ContactBanner() {
 
           <div className={styles.actionRow}>
             <button className={styles.ctaButton} type="button">
-              <span>{contactData.ctaText}</span>
+              <span>{ctaText}</span>
               <span className={styles.ctaChatBubble}>
                 <MessageCircle size={15} fill="currentColor" />
               </span>
@@ -73,7 +92,7 @@ export default function ContactBanner() {
               <div className={styles.headerIconCircle}>
                 <User size={15} className={styles.headerUserIcon} />
               </div>
-              <span className={styles.headerTitle}>{contactData.supportCard.header}</span>
+              <span className={styles.headerTitle}>{supportCard.header}</span>
             </div>
 
             <div className={styles.emailSection}>
@@ -81,8 +100,8 @@ export default function ContactBanner() {
                 <Mail size={18} className={styles.emailMailIcon} />
               </div>
               <div className={styles.emailDetails}>
-                <span className={styles.emailLabel}>{contactData.supportCard.emailLabel}</span>
-                <span className={styles.emailAddress}>{contactData.supportCard.emailValue}</span>
+                <span className={styles.emailLabel}>{supportCard.emailLabel}</span>
+                <span className={styles.emailAddress}>{supportCard.emailValue}</span>
               </div>
             </div>
 
@@ -93,7 +112,7 @@ export default function ContactBanner() {
             >
               <div className={styles.copyLeft}>
                 <Copy size={16} className={styles.copyIcon} />
-                <span>{copied ? 'Copied to Clipboard!' : contactData.supportCard.copyButtonText}</span>
+                <span>{copied ? 'Copied to Clipboard!' : supportCard.copyButtonText}</span>
               </div>
               <div className={styles.copyRight}>
                 {copied ? <Check size={16} className={styles.checkIcon} /> : <Copy size={15} />}
@@ -102,25 +121,21 @@ export default function ContactBanner() {
             </button>
 
             <div className={styles.quickLinks}>
-              <button className={styles.quickLinkItem} type="button">
-                <div className={styles.quickLinkLeft}>
-                  <div className={styles.quickLinkIconCyan}>
-                    <BookOpen size={16} />
-                  </div>
-                  <span>{contactData.supportCard.links[0].label}</span>
-                </div>
-                <ChevronRight size={16} className={styles.linkChevron} />
-              </button>
-
-              <button className={styles.quickLinkItem} type="button">
-                <div className={styles.quickLinkLeft}>
-                  <div className={styles.quickLinkIconPurple}>
-                    <Ticket size={16} />
-                  </div>
-                  <span>{contactData.supportCard.links[1].label}</span>
-                </div>
-                <ChevronRight size={16} className={styles.linkChevron} />
-              </button>
+              {supportCard.links.map((link) => {
+                const config = LINK_ICONS[link.type] || { Icon: BookOpen, className: styles.quickLinkIconCyan }
+                const { Icon, className } = config
+                return (
+                  <button key={link.id} className={styles.quickLinkItem} type="button">
+                    <div className={styles.quickLinkLeft}>
+                      <div className={className}>
+                        <Icon size={16} />
+                      </div>
+                      <span>{link.label}</span>
+                    </div>
+                    <ChevronRight size={16} className={styles.linkChevron} />
+                  </button>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -128,3 +143,4 @@ export default function ContactBanner() {
     </section>
   )
 }
+

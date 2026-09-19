@@ -1,4 +1,3 @@
-import React from 'react'
 import componentImg from '../../../assets/illustrations/contact/contactcomponent.webp'
 import styles from './ContactBanner.module.css'
 
@@ -11,10 +10,10 @@ export default function ContactVisual() {
           alt="Friendly VELOOP Customer Support Representative"
           className={styles.visualImage}
           loading="eager"
-          fetchPriority="high"
           decoding="sync"
         />
       </div>
     </div>
   )
 }
+
