@@ -52,7 +52,7 @@ export default function ContactBanner() {
           <div className={styles.descriptionGroup}>
             <p className={styles.descriptionText}>{contactData.descriptionLine1}</p>
             <p className={styles.descriptionText}>
-              Get in touch with the <span className={styles.brandHighlight}>VELOP Rewards</span> team.
+              Get in touch with the <span className={styles.brandHighlight}>VELOOP Rewards</span> team.
             </p>
           </div>
 

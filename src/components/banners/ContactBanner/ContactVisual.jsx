@@ -10,8 +10,9 @@ export default function ContactVisual() {
           src={componentImg}
           alt="Friendly VELOOP Customer Support Representative"
           className={styles.visualImage}
-          loading="lazy"
-          decoding="async"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
       </div>
     </div>

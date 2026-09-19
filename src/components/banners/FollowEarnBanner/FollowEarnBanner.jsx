@@ -30,7 +30,7 @@ export default function FollowEarnBanner() {
           </div>
 
           <p className={styles.descriptionText}>
-            Follow <span className={styles.brandHighlight}>VELOP</span> Rewards on our official channels and participate in eligible social campaigns to unlock rewards.
+            Follow <span className={styles.brandHighlight}>VELOOP</span> Rewards on our official channels and participate in eligible social campaigns to unlock rewards.
           </p>
 
           <div className={styles.actionRow}>

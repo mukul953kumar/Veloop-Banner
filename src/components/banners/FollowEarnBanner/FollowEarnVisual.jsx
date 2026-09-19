@@ -10,8 +10,9 @@ export default function FollowEarnVisual() {
           src={componentImg}
           alt="Official VELOOP Rewards Social Profile and Floating Reactions"
           className={styles.visualImage}
-          loading="lazy"
-          decoding="async"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
       </div>
     </div>

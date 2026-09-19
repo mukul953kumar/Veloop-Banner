@@ -40,7 +40,7 @@ This project delivers a complete redesign and redevelopment of five utility/enga
 - **Visual Composition:** Friendly 3D customer support specialist with laptop, chat bubbles, and communication streams.
 - **Interactive Action Card:**
   - Verified support header pill.
-  - Interactive **One-Click Email Copy** button (`veloprewardsofficial@gmail.com`) with instant visual clipboard feedback.
+  - Interactive **One-Click Email Copy** button (`velooprewardsofficial@gmail.com`) with instant visual clipboard feedback.
   - Direct links to **Live Chat Support** and **Help Center FAQ**.
 - **CTA:** `Contact Support →`.
 

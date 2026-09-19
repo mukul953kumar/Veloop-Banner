@@ -10,8 +10,9 @@ export default function WatchAdsVisual() {
           src={componentImg}
           alt="Watch Ads and Earn VEs Illustration"
           className={styles.visualImage}
-          loading="lazy"
-          decoding="async"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
       </div>
     </div>

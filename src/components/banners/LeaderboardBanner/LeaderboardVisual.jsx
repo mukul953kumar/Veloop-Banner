@@ -14,8 +14,9 @@ export default function LeaderboardVisual({ users = [] }) {
           src={componentImg}
           alt="Leaderboard Podium"
           className={styles.visualImage}
+          loading="eager"
           fetchPriority="high"
-          decoding="async"
+          decoding="sync"
         />
 
         <div className={styles.slotCenterCircle}>

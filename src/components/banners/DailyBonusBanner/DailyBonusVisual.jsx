@@ -12,8 +12,9 @@ export default function DailyBonusVisual({ isClaimed }) {
           src={componentImg}
           alt="3D Glowing Mystery Gift Box with Gold Coins"
           className={styles.visualImage}
-          loading="lazy"
-          decoding="async"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
 
         <div className={styles.todayBonusCard}>

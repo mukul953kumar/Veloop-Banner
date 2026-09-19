@@ -9,7 +9,7 @@ export const contactData = {
   supportCard: {
     header: "We're here to help",
     emailLabel: "Email Us",
-    emailValue: "veloprewardsofficial@gmail.com",
+    emailValue: "velooprewardsofficial@gmail.com",
     copyButtonText: "Copy Email",
     links: [
       {
