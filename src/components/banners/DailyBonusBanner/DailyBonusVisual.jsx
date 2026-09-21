@@ -1,4 +1,4 @@
-import { Gem } from 'lucide-react'
+import { Gem, Sparkles } from 'lucide-react'
 import componentImg from '../../../assets/illustrations/daily-bonus/dailybonuscomponent.webp'
 import { dailyBonusData } from '../../../data/dailyBonusData'
 import styles from './DailyBonusBanner.module.css'
@@ -12,10 +12,12 @@ export default function DailyBonusVisual({ isClaimed }) {
         <img
           src={componentImg}
           alt="3D Glowing Mystery Gift Box with Gold Coins"
-          className={styles.visualImage}
+          className={`${styles.visualImage} ${isClaimed ? styles.visualImageClaimed : ''}`}
           loading="eager"
           decoding="sync"
         />
+
+        <div className={styles.visualGoldenAura} />
 
         <div className={styles.todayBonusCard}>
           <div className={styles.todayHeader}>
@@ -24,19 +26,22 @@ export default function DailyBonusVisual({ isClaimed }) {
           </div>
 
           <div className={styles.todayAmountRow}>
-            <span className={styles.todayAmountNumber}>+25</span>
-            <span className={styles.todayAmountUnit}>GEMS</span>
+            <span className={styles.todayAmountNumber}>{todayBonus.amount}</span>
+            <span className={styles.todayAmountUnit}>{todayBonus.unit}</span>
+          </div>
+
+          <div className={styles.todaySubRow}>
+            <span className={styles.xpBonusBadge}>{todayBonus.xpBonus}</span>
           </div>
 
           <div className={styles.todayStatusRow}>
+            <span className={isClaimed ? styles.statusDotClaimed : styles.statusDot} />
             <span className={styles.todayStatusText}>
               {isClaimed ? 'Claimed Today' : todayBonus.statusText}
             </span>
-            <span className={isClaimed ? styles.statusDotClaimed : styles.statusDot} />
           </div>
         </div>
       </div>
     </div>
   )
 }
-

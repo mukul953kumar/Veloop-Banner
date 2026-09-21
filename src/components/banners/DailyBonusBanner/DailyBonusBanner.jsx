@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { Crown, Gift, ArrowRight, Flame, Check, Sparkles, CheckCircle2 } from 'lucide-react'
+import { Crown, Gift, ArrowRight, Flame, Check, Sparkles, CheckCircle2, Clock } from 'lucide-react'
 import DailyBonusVisual from './DailyBonusVisual'
 import { dailyBonusData } from '../../../data/dailyBonusData'
 import styles from './DailyBonusBanner.module.css'
 
 export default function DailyBonusBanner() {
   const [isClaimed, setIsClaimed] = useState(false)
+  const [showCelebration, setShowCelebration] = useState(false)
 
   const { badgeNumber, badgeCategory, titleMain, titleAccent, descriptionText, ctaText, streakCard } = dailyBonusData
 
@@ -14,6 +15,13 @@ export default function DailyBonusBanner() {
     : streakCard.days
 
   const completedCount = isClaimed ? 7 : streakCard.completedDays
+
+  const handleClaim = () => {
+    if (isClaimed) return
+    setIsClaimed(true)
+    setShowCelebration(true)
+    setTimeout(() => setShowCelebration(false), 3000)
+  }
 
   return (
     <section className={styles.bannerWrapper}>
@@ -32,6 +40,10 @@ export default function DailyBonusBanner() {
               <Crown size={15} className={styles.crownIcon} />
               <span>{badgeCategory}</span>
             </div>
+            <div className={styles.multiplierPill}>
+              <Flame size={13} className={styles.multiplierFlame} />
+              <span>2.5x Boost</span>
+            </div>
           </div>
 
           <div className={styles.headerGroup}>
@@ -45,14 +57,14 @@ export default function DailyBonusBanner() {
             <button
               className={`${styles.ctaButton} ${isClaimed ? styles.ctaButtonClaimed : ''}`}
               type="button"
-              onClick={() => setIsClaimed(true)}
+              onClick={handleClaim}
             >
               {isClaimed ? (
                 <>
                   <CheckCircle2 size={20} className={styles.btnGiftIcon} />
                   <span>Bonus Claimed!</span>
-                  <span className={styles.btnArrowCircle}>
-                    <Sparkles size={16} className={styles.ctaArrow} />
+                  <span className={styles.btnArrowCircleClaimed}>
+                    <Sparkles size={16} className={styles.ctaSparkle} />
                   </span>
                 </>
               ) : (
@@ -69,40 +81,56 @@ export default function DailyBonusBanner() {
         </div>
 
         <div className={styles.actionCardCol}>
-          <div className={styles.streakBox}>
+          <div className={`${styles.streakBox} ${showCelebration ? styles.streakBoxCelebrate : ''}`}>
             <div className={styles.streakHeader}>
               <div className={styles.flameIconBox}>
                 <Flame size={18} className={styles.flameIcon} />
               </div>
-              <span className={styles.streakTitle}>{streakCard.title}</span>
+              <div className={styles.streakTitleGroup}>
+                <span className={styles.streakTitle}>{streakCard.title}</span>
+                <span className={styles.streakMultiplierText}>{streakCard.multiplier}</span>
+              </div>
             </div>
 
             <div className={styles.streakDivider} />
 
             <div className={styles.streakDaysRow}>
               {streakDays.map((item) => (
-                <div key={item.day} className={styles.streakDayItem}>
-                  <span className={styles.dayLabel}>{item.day}</span>
+                <div 
+                  key={item.day} 
+                  className={`${styles.streakDayItem} ${item.isJackpot && !item.completed ? styles.jackpotPendingItem : ''}`}
+                >
+                  <span className={styles.dayLabel}>D{item.day}</span>
                   {item.completed ? (
-                    <div className={styles.dayCheckedCircle}>
-                      <Check size={14} strokeWidth={3} />
+                    <div className={`${styles.dayCheckedCircle} ${item.isJackpot ? styles.dayJackpotChecked : ''}`}>
+                      <Check size={13} strokeWidth={3} />
                     </div>
                   ) : (
-                    <div className={styles.dayPendingCircle}>
-                      <span>{item.day}</span>
+                    <div className={`${styles.dayPendingCircle} ${item.isJackpot ? styles.dayJackpotPending : ''}`}>
+                      {item.isJackpot ? <Gift size={13} className={styles.jackpotGiftIcon} /> : <span>{item.day}</span>}
                     </div>
                   )}
+                  <span className={`${styles.dayRewardAmount} ${item.isJackpot ? styles.jackpotRewardText : ''}`}>
+                    {item.reward}
+                  </span>
                 </div>
               ))}
             </div>
 
             <div className={styles.streakSummary}>
               <div className={styles.completedText}>
-                <span className={styles.completedNumber}>{completedCount}</span> {isClaimed ? 'Days Completed!' : 'Days Completed'}
+                <span className={styles.completedNumber}>{completedCount}</span> / 7 Days Completed
               </div>
-              <span className={styles.statusSubtitle}>
-                {isClaimed ? 'All daily rewards unlocked!' : streakCard.statusSubtitle}
-              </span>
+              <div className={styles.statusRow}>
+                {isClaimed ? (
+                  <div className={styles.resetTimerBox}>
+                    <Clock size={13} className={styles.clockIcon} />
+                    <span>Next bonus available in 18h 42m</span>
+                  </div>
+                ) : (
+                  <span className={styles.statusSubtitle}>{streakCard.statusSubtitle}</span>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -110,4 +138,3 @@ export default function DailyBonusBanner() {
     </section>
   )
 }
-

@@ -7,22 +7,25 @@ export const dailyBonusData = {
   ctaText: "Claim Bonus",
   todayBonus: {
     label: "TODAY'S BONUS",
-    amount: "+25 GEMS",
+    amount: "+25",
+    unit: "GEMS",
+    xpBonus: "+150 XP",
     statusText: "Available Now"
   },
   streakCard: {
     title: "7-DAY STREAK",
     completedDays: 6,
     totalDays: 7,
-    statusSubtitle: "Come back tomorrow!",
+    multiplier: "2.5x Streak Boost Active",
+    statusSubtitle: "Claim today's reward to finish the streak!",
     days: [
-      { day: 1, completed: true },
-      { day: 2, completed: true },
-      { day: 3, completed: true },
-      { day: 4, completed: true },
-      { day: 5, completed: true },
-      { day: 6, completed: true },
-      { day: 7, completed: false }
+      { day: 1, reward: "+10", completed: true, isJackpot: false },
+      { day: 2, reward: "+15", completed: true, isJackpot: false },
+      { day: 3, reward: "+20", completed: true, isJackpot: false },
+      { day: 4, reward: "+25", completed: true, isJackpot: false },
+      { day: 5, reward: "+30", completed: true, isJackpot: false },
+      { day: 6, reward: "+40", completed: true, isJackpot: false },
+      { day: 7, reward: "+100", completed: false, isJackpot: true }
     ]
   }
 }
